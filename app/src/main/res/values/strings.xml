@@ -2,8 +2,15 @@
     <string name="app_name">TestApp</string>
     <string name="title_activity_main">MainActivity</string>
 
-    <string name="hello_world">这是欢迎页</string>
+    <string name="hello_world">hello world</string>
+    <string name="hello_welcome">这是欢迎页</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="mian_bottom_nearby">附近</string>
+    <string name="mian_bottom_indent">订单</string>
+    <string name="mian_bottom_mine">我的</string>
+    <string name="title_activity_nearby">NearbyActivity</string>
+    <string name="title_activity_indent">IndentActivity</string>
+    <string name="title_activity_mine">MineActivity</string>
 </resources>
