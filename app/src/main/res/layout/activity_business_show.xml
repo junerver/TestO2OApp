@@ -71,7 +71,7 @@
         <!--android:layout_height="15dp"-->
         <!--android:background="@color/lightgrey"/>-->
 
-    <!--简介-->
+    <!--简介标题-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -84,6 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/lightgrey"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -100,6 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:background="@color/lightgrey"/>
+    <!--商家展示标题-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"

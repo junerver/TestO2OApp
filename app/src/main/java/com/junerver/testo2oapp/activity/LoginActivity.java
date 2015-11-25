@@ -9,8 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.junerver.testo2oapp.R;
+import com.junerver.testo2oapp.utils.BaseActivity;
 
-public class LoginActivity extends ActionBarActivity   {
+public class LoginActivity extends BaseActivity {
     private EditText et_user;
     private EditText et_pass;
     private Button btn_login;
