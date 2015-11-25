@@ -31,6 +31,14 @@
             android:name=".activity.MineActivity"
             android:label="@string/title_activity_mine" >
         </activity>
+        <activity
+            android:name=".activity.BusinessShowActivity"
+            android:label="@string/title_activity_business_show" >
+        </activity>
+        <activity
+            android:name=".activity.NewIndentActivity"
+            android:label="@string/title_activity_new_indent" >
+        </activity>
     </application>
 
 </manifest>

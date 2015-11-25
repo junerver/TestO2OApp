@@ -13,4 +13,6 @@
     <string name="title_activity_nearby">NearbyActivity</string>
     <string name="title_activity_indent">IndentActivity</string>
     <string name="title_activity_mine">MineActivity</string>
+    <string name="title_activity_business_show">BusinessShowActivity</string>
+    <string name="title_activity_new_indent">NewIndentActivity</string>
 </resources>

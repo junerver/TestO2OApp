@@ -2,7 +2,6 @@ package com.junerver.testo2oapp.activity;
 
 import android.app.TabActivity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.Menu;
@@ -120,7 +119,7 @@ public class MainActivity extends TabActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-//            附近
+//            附近，点击后将被点击的资源设置成on 其他资源设置成off（还有其他的实现方式）
             case R.id.linearlayout_nearby:
             case R.id.img_nearby:
                 host.setCurrentTabByTag(NEARBY_STRING);

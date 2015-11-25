@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.junerver.testo2oapp.activity.BusinessShowActivity">
+
+    <!--头像与昵称等信息-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+        <!--头像-->
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:background="@drawable/avatar_1"
+            android:id="@+id/img_avatar" />
+        <!--昵称等信息-->
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="黄晓明"
+                android:textSize="20dp"
+                android:id="@+id/text_username"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="共完成233次订单"
+                android:textColor="@color/textgray"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="家政 清洁"
+                android:textColor="@color/textgray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_action_favorite_off"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收藏"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/lightgrey"/>
+
+    <!--简介-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="15dp"
+        android:gravity="center_vertical"
+        android:text="简介:"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/lightgrey"/>
+
+
+</LinearLayout>

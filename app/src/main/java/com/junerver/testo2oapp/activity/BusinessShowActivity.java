@@ -1,7 +1,5 @@
 package com.junerver.testo2oapp.activity;
 
-import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,29 +7,18 @@ import android.view.MenuItem;
 
 import com.junerver.testo2oapp.R;
 
-public class WelcomeActivity extends ActionBarActivity {
+public class BusinessShowActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-        //一个延时跳转效果
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(WelcomeActivity.this, BusinessShowActivity.class);
-                startActivity(intent);
-                WelcomeActivity.this.finish();
-//                Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
-            }
-        }, 1000);
-
+        setContentView(R.layout.activity_business_show);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_welcome, menu);
+        getMenuInflater().inflate(R.menu.menu_business_show, menu);
         return true;
     }
 
