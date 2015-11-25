@@ -80,6 +80,20 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/lightgrey"/>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textSize="15dp"
+        android:gravity="center_vertical"
+        android:lineSpacingMultiplier="1.3"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/text_info"
+        android:text="@string/text_default_info"
+        />
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/lightgrey"/>
 
 </LinearLayout>

@@ -15,4 +15,5 @@
     <string name="title_activity_mine">MineActivity</string>
     <string name="title_activity_business_show">BusinessShowActivity</string>
     <string name="title_activity_new_indent">NewIndentActivity</string>
+    <string name="text_default_info">明月几时有，\n把酒问青天!\n不知天上宫阙，\n今夕是何年？</string>
 </resources>
