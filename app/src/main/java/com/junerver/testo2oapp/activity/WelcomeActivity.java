@@ -8,8 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.junerver.testo2oapp.R;
+import com.junerver.testo2oapp.utils.BaseActivity;
 
-public class WelcomeActivity extends ActionBarActivity {
+public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

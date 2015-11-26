@@ -6,8 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.junerver.testo2oapp.R;
+import com.junerver.testo2oapp.utils.BaseActivity;
 
-public class IndentActivity extends ActionBarActivity {
+public class IndentActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

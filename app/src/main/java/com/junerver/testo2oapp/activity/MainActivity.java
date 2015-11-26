@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.junerver.testo2oapp.R;
 import com.junerver.testo2oapp.app.AppContext;
+import com.junerver.testo2oapp.utils.ActivityCollector;
 
 public class MainActivity extends TabActivity implements OnClickListener {
 
@@ -47,7 +48,7 @@ public class MainActivity extends TabActivity implements OnClickListener {
         setIndentTab();
         setMineTab();
         host.setCurrentTabByTag(NEARBY_STRING);//设置页面默认为附近
-
+        ActivityCollector. addActivity(this);
     }
 
     private void setNearbyTab() {
@@ -103,6 +104,12 @@ public class MainActivity extends TabActivity implements OnClickListener {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector. removeActivity(this);
     }
 
     private void getScreenDisplay(){
