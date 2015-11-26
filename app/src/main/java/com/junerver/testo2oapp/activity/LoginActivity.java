@@ -28,7 +28,7 @@ public class LoginActivity extends BaseActivity {
         et_user = (EditText) findViewById(R.id.et_username);
         et_pass = (EditText) findViewById(R.id.et_password);
         btn_login = (Button) findViewById(R.id.btn_login);
-        btn_register = (Button) findViewById(R.id.btn_register);
+//        btn_register = (Button) findViewById(R.id.btn_register);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

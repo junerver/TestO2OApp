@@ -25,6 +25,7 @@
             android:layout_width="160dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <!--昵称-->
             <TextView
                 android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
@@ -34,16 +35,27 @@
                 android:textSize="20dp"
                 android:id="@+id/text_username"
                 />
+            <!--完成订单-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="共完成233次订单"
                 android:textColor="@color/white"/>
+            <!--tag-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="家政 清洁"
                 android:textColor="@color/white"/>
+            <RatingBar
+                android:id="@+id/ratingBar1"
+                style="@style/rankRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="1.3"
+                />
         </LinearLayout>
 
         <LinearLayout
