@@ -57,8 +57,8 @@ public class MainActivity extends TabActivity implements OnClickListener {
     }
 
     private void setIndentTab() {
-//        host.addTab(host.newTabSpec(INDENT_STRING).setIndicator(INDENT_STRING).setContent(new Intent(MainActivity.this,IndentActivity.class)));
-        host.addTab(host.newTabSpec(INDENT_STRING).setIndicator(INDENT_STRING).setContent(new Intent(MainActivity.this,LoginActivity.class)));
+        host.addTab(host.newTabSpec(INDENT_STRING).setIndicator(INDENT_STRING).setContent(new Intent(MainActivity.this,IndentActivity.class)));
+//        host.addTab(host.newTabSpec(INDENT_STRING).setIndicator(INDENT_STRING).setContent(new Intent(MainActivity.this,LoginActivity.class)));
     }
 
     private void setMineTab() {
