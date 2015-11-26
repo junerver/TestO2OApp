@@ -54,6 +54,17 @@ public class IndentActivity extends BaseActivity {
         mSlidingTabLayout.setCustomTabView(R.layout.view_tab, R.id.tv_text);
         mSlidingTabLayout.setViewPager(mViewPager); // 加载ViewPager
 
+        mSlidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+            @Override
+            public int getIndicatorColor(int position) {
+                return 0x00436EEE;
+            }
+
+            @Override
+            public int getDividerColor(int position) {
+                return 0x00FFFFFF;
+            }
+        });
 
 //        listFrament = new ArrayList<Fragment>();
 //        listFrament.add(new AllIndentFragment());
