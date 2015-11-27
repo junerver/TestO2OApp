@@ -21,7 +21,7 @@ public class WelcomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        //一个延时跳转效果
+
         // 开启logcat输出，方便debug，发布时请关闭
         XGPushConfig. enableDebug(this, true) ;
         // 如果需要知道注册是否成功，请使用registerPush(getApplicationContext(), XGIOperateCallback)带callback版本
@@ -41,6 +41,7 @@ public class WelcomeActivity extends BaseActivity {
                 Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
             }
         });
+        //一个延时跳转效果
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
