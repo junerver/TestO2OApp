@@ -1,19 +1,31 @@
 package com.junerver.testo2oapp.activity;
 
+import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.junerver.testo2oapp.R;
 import com.junerver.testo2oapp.utils.BaseActivity;
 
 public class NewIndentActivity extends BaseActivity {
+    private ImageView img_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_indent);
+
+        img_back = (ImageView) findViewById(R.id.img_back);
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

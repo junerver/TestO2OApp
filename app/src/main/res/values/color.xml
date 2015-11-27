@@ -2,10 +2,11 @@
 <resources>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="lightgrey">#B7B7B7</color>
-    <color name="gray">#99DCD7</color>
+    <color name="lightgrey">#DBDBDB</color>
+    <color name="heightgrey">#CDC9C9</color>
+    <color name="gray">#B5B5B5</color>
     <color name="blue">#01ffde</color>
-    <color name="green">#39BEB4</color>
+    <color name="green">#43CD80</color>
     <color name="backgroundcolor">#f0f0f0</color>
     <color name="shallowgray">#e1e1e1</color>
     <color name="textgray">#A39898</color>
@@ -15,4 +16,5 @@
     <color name="popup_main_background">#b0000000</color>
     <color name="orange">#FF9900</color>
     <color name="greyblue">#436EEE</color>
+
 </resources>
