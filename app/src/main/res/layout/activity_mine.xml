@@ -1,12 +1,80 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context="com.junerver.testo2oapp.activity.MineActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-</RelativeLayout>
+    <!--仿百度外卖-->
+    <!--头像与昵称等信息-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@color/greyblue">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/greyblue"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+            <!--头像-->
+
+            <com.junerver.testo2oapp.common.CircleImageView
+                android:layout_marginTop="16dp"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/avatar_1"
+                app:border_width="2dp"
+                app:border_color="@color/white"
+                />
+            <!--昵称等信息-->
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="黄晓明"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:id="@+id/text_username"
+                />
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_settings_applications_white_48dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="21dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginTop="20dp" />
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

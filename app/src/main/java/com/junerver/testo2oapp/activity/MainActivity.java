@@ -62,8 +62,8 @@ public class MainActivity extends TabActivity implements OnClickListener {
     }
 
     private void setMineTab() {
-//        host.addTab(host.newTabSpec(MINE_STRING).setIndicator(MINE_STRING).setContent(new Intent(MainActivity.this,MineActivity.class)));
-        host.addTab(host.newTabSpec(MINE_STRING).setIndicator(MINE_STRING).setContent(new Intent(MainActivity.this,BusinessShowActivity.class)));
+        host.addTab(host.newTabSpec(MINE_STRING).setIndicator(MINE_STRING).setContent(new Intent(MainActivity.this,MineActivity.class)));
+//        host.addTab(host.newTabSpec(MINE_STRING).setIndicator(MINE_STRING).setContent(new Intent(MainActivity.this,BusinessShowActivity.class)));
     }
 
     private void initView() {
