@@ -15,13 +15,19 @@
         android:orientation="horizontal"
         android:weightSum="1">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-            android:id="@+id/img_back"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/ic_home_as_up_indicator" />
+        <FrameLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/framelayout_back">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:id="@+id/img_back"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/ic_home_as_up_indicator" />
+        </FrameLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
