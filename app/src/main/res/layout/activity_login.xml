@@ -48,7 +48,7 @@
        android:layout_margin="20dp"
        android:orientation="vertical">
        <EditText
-           android:id="@+id/et_username"
+           android:id="@+id/et_login_username"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:layout_centerHorizontal="true"
@@ -56,7 +56,7 @@
            android:hint="账号：" />
 
        <EditText
-           android:id="@+id/et_password"
+           android:id="@+id/et_login_password"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:layout_centerVertical="true"
