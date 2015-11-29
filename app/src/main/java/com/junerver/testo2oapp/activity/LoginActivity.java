@@ -1,5 +1,6 @@
 package com.junerver.testo2oapp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,14 +32,19 @@ public class LoginActivity extends BaseActivity {
     Button btnLogin;
     @Bind(R.id.linearlayout_login)
     LinearLayout linearlayoutLogin;
-    @Bind(R.id.text_register)
-    TextView textRegister;
     @Bind(R.id.text_quicklogin)
     TextView textQuicklogin;
+    @Bind(R.id.text_register)
+    TextView textRegister;
 
-    @OnClick(R.id.img_back)
-   public void finishIt(View v){
+    @OnClick(R.id.framelayout_back)
+    public void finishIt(View v) {
         finish();
+    }
+
+    @OnClick(R.id.text_register)
+    public void openRegister(View view) {
+        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
     }
 
 
@@ -47,7 +53,6 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-
 
 
     }

@@ -57,7 +57,7 @@
             android:id="@+id/et_login_username"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="10dp"
             android:layout_marginLeft="5dp"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
@@ -67,10 +67,11 @@
         <!--重新输入-->
         <FrameLayout
             android:layout_width="30dp"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp">
             <ImageButton
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
                 android:layout_gravity="center"
                 android:background="@null"
                 android:src="@drawable/ic_close_black_48dp"/>
