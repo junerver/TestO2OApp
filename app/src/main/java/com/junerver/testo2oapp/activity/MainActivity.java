@@ -53,7 +53,8 @@ public class MainActivity extends TabActivity implements OnClickListener {
 
 //    设置各个标签对应的activity
     private void setNearbyTab() {
-        host.addTab(host.newTabSpec(NEARBY_STRING).setIndicator(NEARBY_STRING).setContent(new Intent(MainActivity.this,NearbyActivity.class)));
+//        host.addTab(host.newTabSpec(NEARBY_STRING).setIndicator(NEARBY_STRING).setContent(new Intent(MainActivity.this,NearbyActivity.class)));
+        host.addTab(host.newTabSpec(NEARBY_STRING).setIndicator(NEARBY_STRING).setContent(new Intent(MainActivity.this,LoginActivity.class)));
     }
 
     private void setIndentTab() {

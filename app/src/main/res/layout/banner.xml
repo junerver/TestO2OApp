@@ -3,7 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--banner，更新了下使用一个FrameLayout将回退图标包含-->
+    <!--banner，更新了下使用一个FrameLayout将回退图标包含,更新了引用的源图片-->
+    <!--banner-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -18,8 +19,8 @@
             android:layout_height="50dp"
             android:id="@+id/framelayout_back">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="25dp"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
                 android:id="@+id/img_back"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="15dp"
@@ -36,6 +37,10 @@
             android:textSize="@dimen/activity_title_text_size" />
 
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/heightgrey"/>
     <!--分割线-->
     <ImageView
         android:layout_width="match_parent"
