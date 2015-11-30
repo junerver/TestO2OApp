@@ -3,18 +3,17 @@ package com.junerver.testo2oapp.utils;
 /**
  * Created by Junerver on 2015/11/12.
  * Http请求的工具类
- *
  */
 
 
-        import java.io.BufferedReader;
-        import java.io.ByteArrayOutputStream;
-        import java.io.IOException;
-        import java.io.InputStream;
-        import java.io.InputStreamReader;
-        import java.io.PrintWriter;
-        import java.net.HttpURLConnection;
-        import java.net.URL;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  *
@@ -22,13 +21,11 @@ package com.junerver.testo2oapp.utils;
  * @author zhy
  *
  */
-public class HttpUtils
-{
+public class HttpUtils {
 
     private static final int TIMEOUT_IN_MILLIONS = 5000;
 
-    public interface CallBack
-    {
+    public interface CallBack {
         void onRequestComplete(String result);
     }
 
@@ -39,25 +36,21 @@ public class HttpUtils
      * @param urlStr
      * @param callBack
      */
-    public static void doGetAsyn(final String urlStr, final CallBack callBack)
-    {
-        new Thread()
-        {
-            public void run()
-            {
-                try
-                {
+    public static void doGetAsyn(final String urlStr, final CallBack callBack) {
+        new Thread() {
+            public void run() {
+                try {
                     String result = doGet(urlStr);
-                    if (callBack != null)
-                    {
+                    if (callBack != null) {
                         callBack.onRequestComplete(result);
                     }
-                } catch (Exception e)
-                {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-            };
+            }
+
+            ;
         }.start();
     }
 
@@ -69,25 +62,21 @@ public class HttpUtils
      * @throws Exception
      */
     public static void doPostAsyn(final String urlStr, final String params,
-                                  final CallBack callBack) throws Exception
-    {
-        new Thread()
-        {
-            public void run()
-            {
-                try
-                {
+                                  final CallBack callBack) throws Exception {
+        new Thread() {
+            public void run() {
+                try {
                     String result = doPost(urlStr, params);
-                    if (callBack != null)
-                    {
+                    if (callBack != null) {
                         callBack.onRequestComplete(result);
                     }
-                } catch (Exception e)
-                {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-            };
+            }
+
+            ;
         }.start();
 
     }
@@ -99,14 +88,12 @@ public class HttpUtils
      * @return
      * @throws Exception
      */
-    public static String doGet(String urlStr)
-    {
+    public static String doGet(String urlStr) {
         URL url = null;
         HttpURLConnection conn = null;
         InputStream is = null;
         ByteArrayOutputStream baos = null;
-        try
-        {
+        try {
             url = new URL(urlStr);
             conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(TIMEOUT_IN_MILLIONS);
@@ -114,47 +101,38 @@ public class HttpUtils
             conn.setRequestMethod("GET");
             conn.setRequestProperty("accept", "*/*");
             conn.setRequestProperty("connection", "Keep-Alive");
-            if (conn.getResponseCode() == 200)
-            {
+            if (conn.getResponseCode() == 200) {
                 is = conn.getInputStream();
                 baos = new ByteArrayOutputStream();
                 int len = -1;
                 byte[] buf = new byte[128];
 
-                while ((len = is.read(buf)) != -1)
-                {
+                while ((len = is.read(buf)) != -1) {
                     baos.write(buf, 0, len);
                 }
                 baos.flush();
                 return baos.toString();
-            } else
-            {
+            } else {
                 throw new RuntimeException(" responseCode is not 200 ... ");
             }
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally
-        {
-            try
-            {
+        } finally {
+            try {
                 if (is != null)
                     is.close();
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
             }
-            try
-            {
+            try {
                 if (baos != null)
                     baos.close();
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
             }
             conn.disconnect();
         }
 
-        return null ;
+        return null;
 
     }
 
@@ -168,13 +146,11 @@ public class HttpUtils
      * @return 所代表远程资源的响应结果
      * @throws Exception
      */
-    public static String doPost(String url, String param)
-    {
+    public static String doPost(String url, String param) {
         PrintWriter out = null;
         BufferedReader in = null;
         String result = "";
-        try
-        {
+        try {
             URL realUrl = new URL(url);
             // 打开和URL之间的连接
             HttpURLConnection conn = (HttpURLConnection) realUrl
@@ -193,8 +169,7 @@ public class HttpUtils
             conn.setReadTimeout(TIMEOUT_IN_MILLIONS);
             conn.setConnectTimeout(TIMEOUT_IN_MILLIONS);
 
-            if (param != null && !param.trim().equals(""))
-            {
+            if (param != null && !param.trim().equals("")) {
                 // 获取URLConnection对象对应的输出流
                 out = new PrintWriter(conn.getOutputStream());
                 // 发送请求参数
@@ -206,29 +181,22 @@ public class HttpUtils
             in = new BufferedReader(
                     new InputStreamReader(conn.getInputStream()));
             String line;
-            while ((line = in.readLine()) != null)
-            {
+            while ((line = in.readLine()) != null) {
                 result += line;
             }
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         // 使用finally块来关闭输出流、输入流
-        finally
-        {
-            try
-            {
-                if (out != null)
-                {
+        finally {
+            try {
+                if (out != null) {
                     out.close();
                 }
-                if (in != null)
-                {
+                if (in != null) {
                     in.close();
                 }
-            } catch (IOException ex)
-            {
+            } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
