@@ -1,4 +1,4 @@
-package com.junerver.testo2oapp.common;
+package com.junerver.testo2oapp.view;
 
 /**
  * Created by junerver on 2015/11/28.
