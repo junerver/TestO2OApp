@@ -63,6 +63,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:inputType="phone"
+            android:numeric="integer"
             android:hint="手机号：" />
         <!--重新输入,该控件一开始是不可见的，当开始输入时可见-->
         <FrameLayout

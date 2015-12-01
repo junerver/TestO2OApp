@@ -66,7 +66,7 @@ public class RegisterActivity extends BaseActivity {
         //将字符串进行正则验证
         if (!RegexUtils.isMobileNO(phonenumber)) {
             //验证不通过时toast提示
-            L.d("注册", "不是电话号码");
+            L.d("注册", phonenumber+"不是电话号码");
             Toast.makeText(this, "请输入正确的手机号码~", Toast.LENGTH_LONG).show();
             return;
         } else {
@@ -114,6 +114,7 @@ public class RegisterActivity extends BaseActivity {
 
 
     private void judgeButtonState() {
+        //尝试使用过xml中的布局属性置clicable与enable属性，发现无法满足需求，后改变使用方式
         phonenumber = etRegisterPhoneNumber.getText().toString().trim();
         if (phonenumber.length() == 11) {
             //按钮状态可用
