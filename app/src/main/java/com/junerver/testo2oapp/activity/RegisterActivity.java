@@ -1,5 +1,7 @@
 package com.junerver.testo2oapp.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.junerver.testo2oapp.R;
+import com.junerver.testo2oapp.common.UrlConstant;
 import com.junerver.testo2oapp.utils.BaseActivity;
 import com.junerver.testo2oapp.utils.L;
 import com.junerver.testo2oapp.utils.RegexUtils;
@@ -55,6 +58,9 @@ public class RegisterActivity extends BaseActivity {
     public void getUserAgreement(View v) {
         //TODO
         //新建一个WebView打开一个网页
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(UrlConstant.USER_AGREEMENT));
+        startActivity(i);
     }
 
     //获取验证码的事件
@@ -72,7 +78,7 @@ public class RegisterActivity extends BaseActivity {
         } else {
             L.d("注册", "是电话号码");
         }
-
+        //// TODO: 2015/12/3  
         //到数据库检查是否存在
             //不通过时toast提示
         //调用短信验证码SDK

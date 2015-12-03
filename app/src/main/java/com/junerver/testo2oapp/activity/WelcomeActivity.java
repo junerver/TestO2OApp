@@ -10,7 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.junerver.testo2oapp.R;
+import com.junerver.testo2oapp.operation.Operation;
 import com.junerver.testo2oapp.utils.BaseActivity;
+import com.junerver.testo2oapp.utils.L;
+import com.junerver.testo2oapp.utils.SPUtils;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
@@ -41,17 +44,38 @@ public class WelcomeActivity extends BaseActivity {
                 Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
             }
         });
+        //判断是否是第一次使用该软件，如果是跳转到登录页
+
         //一个延时跳转效果
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-                startActivity(intent);
+                isFirstRun(getApplicationContext());
                 WelcomeActivity.this.finish();
-//                Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
             }
         }, 1000);
 
     }
 
+
+    public void isFirstRun(Context context) {
+        boolean isFirstRun= (boolean) SPUtils.get(context, "isFirstRun", true);
+        if (isFirstRun) {
+            //第一次运行打开登录界面
+            startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+
+        }else {
+            //不是第一次运行，找到SP文件中的用户名密码
+            String user_name = (String) SPUtils.get(context, "LoginedUser", "");
+            String user_pass = (String) SPUtils.get(context, "LoginedPass", "");
+            //使用最后一次保存的用户名密码访问服务器验证，这里使用的这个接口是专门用于SP文件登录的
+            String result = Operation.logined(user_name, user_pass);
+            //测试通过，可以正确的读取出SP文件中保存的用户名与加密后的用户密码
+            L.d("测试SP文件",user_name+user_pass);
+            // TODO: 2015/12/3
+            //判断服务器返回状态，如果通过则进入主页面
+            startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+            //如果不通过则停留在登录页面，并且toast提示！
+        }
+    }
 }

@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.junerver.testo2oapp.R;
 import com.junerver.testo2oapp.operation.Operation;
 import com.junerver.testo2oapp.utils.BaseActivity;
+import com.junerver.testo2oapp.utils.MD5Util;
+import com.junerver.testo2oapp.utils.SPUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -57,17 +59,17 @@ public class LoginActivity extends BaseActivity {
     TextView textQuicklogin;
     @Bind(R.id.text_register)
     TextView textRegister;
-
+    //结束
     @OnClick(R.id.framelayout_back)
     public void finishIt(View v) {
         finish();
     }
-
+    //注册
     @OnClick(R.id.text_register)
     public void openRegister(View view) {
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
     }
-
+    //登录
     @OnClick(R.id.btn_login)
     public void login() {
         user_name = etLoginUsername.getText().toString().trim();
@@ -91,9 +93,19 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void run() {
                 String result = Operation.login(user_name, user_pass);
+                //登录不成功
                 if (result == null || "".equals(result)) {
                     result = "服务器好像出错了~";
                 }
+                //TODO: 2015/12/3
+                //此处只有在登录验证成功后才保存用户名密码
+                //成功后将用户名登陆密码保存到SP文件中,密码使用MD5加密
+                SPUtils.put(getApplicationContext(), "LoginedUser", user_name);
+                SPUtils.put(getApplicationContext(),"LoginedPass", MD5Util.getMD5String(user_pass));
+                SPUtils.put(getApplicationContext(),"isFirstRun",false);
+
+                //// TODO: 2015/12/3
+                // 通过handler更新UI，toast提示、跳转到mainactivity
                 Message message = new Message();
                 message.obj = result;
                 handler.sendMessage(message);
