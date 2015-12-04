@@ -6,6 +6,20 @@ package com.junerver.testo2oapp.utils;
  */
 
 
+import android.os.StrictMode;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -24,6 +38,9 @@ import java.net.URL;
 public class HttpUtils {
 
     private static final int TIMEOUT_IN_MILLIONS = 5000;
+    private static final int REQUEST_TIMEOUT = 1 * 1000;// 设置请求超时10秒钟
+    private static final int SO_TIMEOUT = 5 * 1000; // 设置等待数据超时时间10秒钟
+    private static final int type=-1;//请求Type
 
     public interface CallBack {
         void onRequestComplete(String result);
@@ -202,4 +219,53 @@ public class HttpUtils {
         }
         return result;
     }
+
+
+//===========================================================================================================================
+
+    //一个使用json作为参数的post请求
+    private JSONObject requestServer(String url,  JSONObject param) throws JSONException,
+            ClientProtocolException, IOException {
+
+        // 不加这一段则会报错，错误信息为android.os.networkonmainthreadexception
+        // 在Android2.2以后必须添加以下代码
+        // 本应用采用的Android4.0
+        // 设置线程的策略
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .permitAll() // 此处为允许磁盘读写和网络访问
+                .penaltyLog() // 打印logcat，当然也可以定位到dropbox，通过文件保存相应的log
+                .build());
+        HttpPost request = new HttpPost(url);
+        // 绑定到请求 Entry
+        StringEntity se = new StringEntity(param.toString(), "utf-8");
+        request.setEntity(se);
+        // 发送请求
+        HttpClient httpclient = getHttpClient();
+        HttpResponse httpResponse = httpclient.execute(request);
+        JSONObject result = null;
+        int code = httpResponse.getStatusLine().getStatusCode();
+        if (code == 200) {
+            // 得到应答的字符串，这也是一个 JSON 格式保存的数据
+            String retSrc = null;
+            retSrc = EntityUtils.toString(httpResponse.getEntity(), "utf-8");
+            JSONObject jtmpJsonObject = new JSONObject(retSrc);
+            String str = jtmpJsonObject.getString("dataMap");// 此处"dataMap"与服务器关联
+            result = new JSONObject(str);
+        }
+        return result;
+    }
+    private HttpClient getHttpClient() {
+        BasicHttpParams httpParams = new BasicHttpParams();
+        HttpConnectionParams.setConnectionTimeout(httpParams, REQUEST_TIMEOUT);
+        HttpConnectionParams.setSoTimeout(httpParams, SO_TIMEOUT);
+        HttpClient httpclient = new DefaultHttpClient(httpParams);
+        return httpclient;
+    }
+
+
+
+
+
+
+
 }
